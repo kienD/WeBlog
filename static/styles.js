@@ -418,6 +418,9 @@ there.
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
+body {
+    margin: 0;
+}
 
 a {
     color: rgba(0, 0, 0, 0.439216);
