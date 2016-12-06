@@ -29,6 +29,7 @@ const styleSeparatorAfter = css(
 
 const styleTextarea = css(
 	{
+		backgroundColor: 'transparent',
 		borderWidth: 0,
 		boxSizing: 'border-box',
 		height: '100%',
@@ -84,15 +85,19 @@ class Editor extends React.Component {
 	}
 
 	render() {
+		const {
+			...others
+		} = this.props;
+
 		return (
-			<div>
+			<div {...others}>
 				<div {...css(styleContainer, styleHeader)}>
 					<div {...styleChild}>
-						<h2>Markdown</h2>
+						<h4>Markdown</h4>
 					</div>
 
 					<div {...styleChild}>
-						<h2>Preview</h2>
+						<h4>Preview</h4>
 					</div>
 				</div>
 				<div className={styleContainer}>

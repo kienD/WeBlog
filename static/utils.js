@@ -50,3 +50,7 @@ export const textCenter = css({
 export const w100 = css({
 	width: '100%'
 });
+
+export const mainContent = css({
+	background: '#FAFAFA'
+});

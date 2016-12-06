@@ -428,3 +428,9 @@ a {
 }
 
 `;
+
+export const custom = `
+  body {
+    margin: 0;
+  }
+`;

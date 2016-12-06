@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as utils from '../../static/utils.js';
+import css from 'next/css'
 import Editor from './Editor';
 import Head from '../Head';
 import Header from '../Header';
@@ -31,6 +33,7 @@ export default class extends React.Component {
 		return (
 			<div>
 				<Head />
+
 				<Header title="Create new Post" />
 
 				<form onSubmit={this._handleSubmit}>
