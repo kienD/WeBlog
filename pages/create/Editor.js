@@ -35,6 +35,7 @@ const styleTextarea = css(
 		resize: 'none',
 		width: '100%',
 		':focus': {
+			borderWidth: 0,
 			outline: 'none'
 		}
 	}
@@ -76,7 +77,7 @@ class Editor extends React.Component {
 	_setValue(value) {
 		this.setState(
 			{
-				_preview: this._getHTML(value),
+				_preview: this._getHTML(value, 'Gruber'),
 				_value: value
 			}
 		);
