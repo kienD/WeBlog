@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Editor from './Editor';
 import Nav from '../Nav';
 
 export default class extends React.Component {
@@ -9,6 +10,8 @@ export default class extends React.Component {
 				<Nav />
 
 				<h1>Create new post!</h1>
+
+				<Editor />
 			</div>
 		);
 	}
