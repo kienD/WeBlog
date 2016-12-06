@@ -4,8 +4,26 @@ import Nav from './Nav';
 import css from 'next/css';
 import * as utils from '../static/utils.js';
 
+var dummyArticles = [
+	{
+		title: "DUmmy Title",
+		description: "Dummy description",
+		content: 'Sweet donut marshmallow danish snaps cotton candy. croissant dessert tiramisu lemon drops brownie cake toffee sesame snaps macaroon gingerbread. topping danish jelly beans brownie.',
+	},
+	{
+		title: 'Another title',
+		description: 'Random description',
+		content: 'hah'
+	}
+];
+
 export default class extends React.Component {
-	render() {
+	static getInitialProps(articles) {
+	    return {
+	    	articles: dummyArticles
+	    };
+	  }
+	render(articles) {
 		return (
 			<div>
 				<Head />
@@ -21,23 +39,15 @@ export default class extends React.Component {
 				<div {...css(articleList, utils.standardPadding)}>
 
 					<div className="container">
-						<article {...css(articleCard, utils.standardPadding)}>
-							<h5>Sample Blog Title</h5>
-							<p className={utils.noMargin}>Cotton candy soufflé chupa chups wafer jelly beans jelly-o bonbon sweet caramels jelly-o licorice jelly beans. powder marzipan macaroon tiramisu sugar plum.</p>
-							<a href="/post" className={utils.smallFont}>Read More</a>
-						</article>
-
-						<article {...css(articleCard, utils.standardPadding)}>
-							<h5>Sample Blog Title</h5>
-							<p className={utils.noMargin}>Cotton candy soufflé chupa chups wafer jelly beans jelly-o bonbon sweet caramels jelly-o licorice jelly beans. powder marzipan macaroon tiramisu sugar plum.</p>
-							<a href="/post" className={utils.smallFont}>Read More</a>
-						</article>
-
-						<article {...css(articleCard, utils.standardPadding)}>
-							<h5>Sample Blog Title</h5>
-							<p className={utils.noMargin}>Cotton candy soufflé chupa chups wafer jelly beans jelly-o bonbon sweet caramels jelly-o licorice jelly beans. powder marzipan macaroon tiramisu sugar plum.</p>
-							<a href="/post" className={utils.smallFont}>Read More</a>
-						</article>
+						{this.props.articles.map(function(article) {
+							return (
+								<article className={articleCard}>
+									<h5>{article.title}</h5>
+									<p>{article.description}</p>
+									<a href="/post" className={utils.smallFont}>Read More</a>
+								</article>
+							)
+						})}
 					</div>
 				</div>
 			</div>
@@ -52,5 +62,6 @@ const articleList = css({
 const articleCard = css({
   background: '#FFF',
   boxShadow: '0 1px 4px rgba(0,0,0,.04)',
-  margin: '1em 0'
+  margin: '1em 0',
+  padding: '1em'
 });
