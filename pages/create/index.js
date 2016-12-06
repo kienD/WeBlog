@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Nav from './Nav';
+import Nav from '../Nav';
 
 export default class extends React.Component {
 	render() {
@@ -8,8 +8,8 @@ export default class extends React.Component {
 			<div>
 				<Nav />
 
-				<h1>Blog Home</h1>
+				<h1>Create new post!</h1>
 			</div>
-		)
+		);
 	}
 }
