@@ -7,7 +7,7 @@ export default () => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <style>
-      	{styles.styles}
+      	{styles.skeleton}
       </style>
     </Head>
   </div>

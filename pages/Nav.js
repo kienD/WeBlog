@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
+import css from 'next/css';
+import * as utils from '../static/utils.js';
 
 export default class extends React.Component {
 	render() {
 		return (
-			<div className="nav">
-				<a href="/">Home</a>
-				<a href="/create">Create New Blog</a>
-			</div>
+			<nav {...css(utils.blockContainer, utils.noPadding)}>
+				<a className={utils.standardPadding} href="/">Home</a>
+				<a className={utils.standardPadding} href="/create">Create New Blog</a>
+			</nav>
 		);
 	}
 }
+
+const style = css({
+  display: 'flex'
+})
