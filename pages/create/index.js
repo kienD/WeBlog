@@ -2,7 +2,7 @@ import React from 'react'
 
 import Editor from './Editor';
 import Head from '../Head';
-import Nav from '../Nav';
+import Header from '../Header';
 
 export default class extends React.Component {
 	constructor(props) {
@@ -33,10 +33,7 @@ export default class extends React.Component {
 				<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 
 				<Head />
-
-				<Nav />
-
-				<h1>Create new post!</h1>
+				<Header title="Create new Post" />
 
 				<form onSubmit={this._handleSubmit}>
 					<input label="title" type="text" ref="title"/>

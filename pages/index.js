@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from './Head';
-import Nav from './Nav';
+import Header from './Header';
 import css from 'next/css';
 import * as utils from '../static/utils.js';
 
@@ -27,14 +27,7 @@ export default class extends React.Component {
 		return (
 			<div>
 				<Head />
-
-				<div className="container">
-					<header>
-						<h1>WeBlog</h1>
-					</header>
-
-					<Nav />
-				</div>
+				<Header title="WeBlog" />
 
 				<div {...css(articleList, utils.standardPadding)}>
 
