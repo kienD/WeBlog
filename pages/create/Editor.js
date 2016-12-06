@@ -1,3 +1,4 @@
+import {markdown} from 'markdown';
 import React from 'react'
 
 class Editor extends React.Component {
@@ -12,8 +13,21 @@ class Editor extends React.Component {
 		this._handleChange = this._handleChange.bind(this);
 	}
 
+	_createMarkup() {
+		return {__html: this.state.preview};
+	}
+
 	_handleChange(event) {
 		console.log(event);
+
+		const {value} = event.target;
+
+		this.setState(
+			{
+				preview: markdown.toHTML(value),
+				value: value
+			}
+		);
 	}
 
 	render() {
@@ -23,9 +37,7 @@ class Editor extends React.Component {
 					<textarea value={this.state._value} onChange={this._handleChange} />
 				</div>
 
-				<div className="preview">
-					{this.state.preview}
-				</div>
+				<div className="preview" dangerouslySetInnerHTML={this._createMarkup()}></div>
 			</div>
 		);
 	}
