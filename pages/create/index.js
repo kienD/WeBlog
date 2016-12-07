@@ -16,7 +16,7 @@ export default class extends React.Component {
 		var data = WeDeploy.data('http://data.weblog-test.wedeploy.io');
 
 		data.create(
-			'post',
+			'posts',
 			{
 				"title": this.refs.title.value,
 				"contentMarkdown": this.refs.editor.state._value,
@@ -30,8 +30,6 @@ export default class extends React.Component {
 	render() {
 		return (
 			<div>
-				<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
-
 				<Head />
 				<Header title="Create new Post" />
 

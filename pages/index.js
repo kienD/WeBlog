@@ -1,60 +1,17 @@
 import React from 'react';
 import Head from './Head';
-import Header from './Header';
-import css from 'next/css';
-import * as utils from '../static/utils.js';
-
-var dummyArticles = [
-	{
-		title: "DUmmy Title",
-		description: "Dummy description",
-		content: 'Sweet donut marshmallow danish snaps cotton candy. croissant dessert tiramisu lemon drops brownie cake toffee sesame snaps macaroon gingerbread. topping danish jelly beans brownie.',
-	},
-	{
-		title: 'Another title',
-		description: 'Random description',
-		content: 'hah'
-	}
-];
+import Nav from './Nav';
+import Feed from './Feed';
 
 export default class extends React.Component {
-	static getInitialProps(articles) {
-	    return {
-	    	articles: dummyArticles
-	    };
-	  }
-	render(articles) {
+	render() {
 		return (
 			<div>
 				<Head />
 				<Header title="WeBlog" />
 
-				<div {...css(articleList, utils.standardPadding)}>
-
-					<div className="container">
-						{this.props.articles.map(function(article) {
-							return (
-								<article className={articleCard}>
-									<h5>{article.title}</h5>
-									<p>{article.description}</p>
-									<a href="/post" className={utils.smallFont}>Read More</a>
-								</article>
-							)
-						})}
-					</div>
-				</div>
+				<Feed />
 			</div>
 		)
 	}
 }
-
-const articleList = css({
-  background: '#FAFAFA'
-});
-
-const articleCard = css({
-  background: '#FFF',
-  boxShadow: '0 1px 4px rgba(0,0,0,.04)',
-  margin: '1em 0',
-  padding: '1em'
-});

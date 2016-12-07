@@ -8,5 +8,7 @@ export default () => (
 		<style type="text/css">
 			{styles.skeleton}
 		</style>
+
+		<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	</Head>
 )
