@@ -3,7 +3,6 @@ import css from 'next/css';
 import Nav from './Nav';
 import * as utils from '../static/utils.js';
 
-
 export default class extends React.Component {
 	render() {
 		return (
