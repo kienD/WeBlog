@@ -8,7 +8,10 @@ export default class extends React.Component {
 		return (
 			<nav {...css()}>
 				<span><Link href="/">Home</Link></span>
+
 				<span className={utils.standardPadding}><Link href="/create">Create New Blog</Link></span>
+
+				<span classNam={utils.standardPadding}><Link href='/SignIn'>Sign In</Link></span>
 			</nav>
 		);
 	}
