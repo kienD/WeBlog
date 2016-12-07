@@ -20,6 +20,7 @@ class Feed extends React.Component {
 		super(props);
 
 		this._getPosts = this._getPosts.bind(this);
+		this._createMarkup = this._createMarkup.bind(this);
 
 		this.state = {
 			_articles: []
@@ -32,6 +33,12 @@ class Feed extends React.Component {
 				_articles: this._getPosts()
 			}
 		);
+	}
+
+	_createMarkup(html) {
+		return {
+			__html: html
+		};
 	}
 
 	_getPosts() {
@@ -52,14 +59,17 @@ class Feed extends React.Component {
 	}
 
 	render() {
+		const createMarkup = this._createMarkup;
+
 		return (
 			<div {...css(articleList, utils.standardPadding)}>
 				<div className="container">
-					{this.state._articles.map(function(article) {
+					{this.state._articles.map((article) => {
+						console.log(article);
 						return (
-							<article className={articleCard} key="article.id">
+							<article className={articleCard} key={article.id}>
 								<h5>{article.title}</h5>
-								<p dangerouslySetInnerHTML={article.contentHTML}></p>
+								<p dangerouslySetInnerHTML={createMarkup(article.contentHTML)}></p>
 								<a href="/post" className={utils.smallFont}>Read More</a>
 							</article>
 						)
